@@ -1,0 +1,18 @@
+name: Fetch Exchange Rates
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  fetch_rates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch exchange rates
+        run: |
+          echo "Using hardcoded API key: 5a08885dc914e45e9034432c"
