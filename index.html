@@ -30,4 +30,30 @@
 
   <script>
     async function convertCurrency() {
-      const API_KEY =_
+      const amount = parseFloat(document.getElementById("amount").value);
+      const targetCurrency = document.getElementById("currency").value;
+
+      if (!amount || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+
+      try {
+        const res = await fetch('rates.json');
+        const data = await res.json();
+
+        if (data.conversion_rates && data.conversion_rates[targetCurrency]) {
+          const rate = data.conversion_rates[targetCurrency];
+          const converted = (amount * rate).toFixed(2);
+          document.getElementById("result").innerText =
+            `${amount} USD = ${converted} ${targetCurrency}`;
+        } else {
+          document.getElementById("result").innerText = "Currency not supported.";
+        }
+      } catch (err) {
+        document.getElementById("result").innerText = "Error loading exchange rates.";
+      }
+    }
+  </script>
+</body>
+</html>
