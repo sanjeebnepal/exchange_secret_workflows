@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Currency Converter</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, select, button { margin: 5px 0; padding: 5px; font-size: 1rem; }
+    #result { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>💱 Currency Converter</h1>
+
+  <label for="amount">Amount (USD):</label><br>
+  <input type="number" id="amount" placeholder="Enter amount" /><br>
+
+  <label for="currency">Convert to:</label><br>
+  <select id="currency">
+    <option value="EUR">EUR</option>
+    <option value="INR">INR</option>
+    <option value="GBP">GBP</option>
+    <option value="JPY">JPY</option>
+    <option value="CAD">CAD</option>
+  </select><br>
+
+  <button onclick="convertCurrency()">Convert</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function convertCurrency() {
+      const API_KEY =_
